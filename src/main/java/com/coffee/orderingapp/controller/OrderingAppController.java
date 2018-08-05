@@ -81,7 +81,7 @@ public class OrderingAppController {
 	@PostMapping
 	public ResponseEntity<String> takeOrder(@RequestBody Order order) {
 		orderService.saveOrder(order);
-		return ResponseEntity.status(HttpStatus.OK).body("User has been registered successfully");
+		return ResponseEntity.status(HttpStatus.OK).body("Order has been taken successfully");
 
 	}
 

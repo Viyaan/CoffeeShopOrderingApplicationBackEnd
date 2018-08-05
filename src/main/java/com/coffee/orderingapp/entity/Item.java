@@ -1,11 +1,14 @@
 package com.coffee.orderingapp.entity;
 
-import javax.persistence.Column;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
@@ -26,6 +29,9 @@ public class Item {
 	@Column(name="price")
 	private double price;
 	
+	@ManyToMany (fetch = FetchType.LAZY, mappedBy ="items")
+	public Set<Order> orders;
+	
 	public String getItemName() {
 		return itemName;
 	}
@@ -38,5 +44,19 @@ public class Item {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+	public Set getOrders() {
+		return orders;
+	}
+	public void setOrders(Set orders) {
+		this.orders = orders;
+	}
+	
+	
 
 }

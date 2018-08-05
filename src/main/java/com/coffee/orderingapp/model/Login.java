@@ -1,4 +1,4 @@
-package com.coffee.orderingapp.entity;
+package com.coffee.orderingapp.model;
 
 public class Login {
 	

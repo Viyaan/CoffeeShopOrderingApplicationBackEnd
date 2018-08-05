@@ -1,7 +1,5 @@
 package com.coffee.orderingapp.service.impl;
 
-import java.util.Random;
-import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +25,7 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		order = TokenGenerator.getToken(order);
 
-		order.setOrderId("");
+		order.setOrderId(0);
 		order.setQuantity(5);
 
 		// orderRepository.save(order);

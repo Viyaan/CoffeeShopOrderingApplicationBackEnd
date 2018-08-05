@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.coffee.orderingapp.entity.Login;
 import com.coffee.orderingapp.entity.Order;
 import com.coffee.orderingapp.entity.User;
+import com.coffee.orderingapp.model.Login;
 import com.coffee.orderingapp.service.OrderService;
 import com.coffee.orderingapp.service.UserService;
 

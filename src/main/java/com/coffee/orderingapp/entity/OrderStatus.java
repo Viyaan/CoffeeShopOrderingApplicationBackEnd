@@ -21,7 +21,7 @@ public class OrderStatus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "status_id")
-	private String statusId;
+	private int statusId;
 	
 	
 	@Column(name = "order_id")

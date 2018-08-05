@@ -2,6 +2,8 @@ package com.coffee.orderingapp.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +27,8 @@ public class OrderStatus {
 	@Column(name = "order_id")
 	private String orderId;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "track_status")
-	private OrderStatus trackingStatus;
+	private com.coffee.orderingapp.enums.OrderStatus trackingStatus;
 
 }

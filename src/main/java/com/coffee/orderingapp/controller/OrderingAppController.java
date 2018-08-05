@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coffee.orderingapp.entity.Login;
+import com.coffee.orderingapp.entity.Order;
 import com.coffee.orderingapp.entity.User;
+import com.coffee.orderingapp.service.OrderService;
 import com.coffee.orderingapp.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +26,9 @@ public class OrderingAppController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private OrderService orderService;
 
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
@@ -65,6 +70,18 @@ public class OrderingAppController {
 			}
 		}
 		return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Password Mismatch");
+
+	}
+	
+	@ApiOperation("Take Order API.")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = User.class),
+			@ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
+	@RequestMapping(value = "/takeOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	@PostMapping
+	public ResponseEntity<String> takeOrder(@RequestBody Order order) {
+		orderService.saveOrder(order);
+		return ResponseEntity.status(HttpStatus.OK).body("User has been registered successfully");
 
 	}
 

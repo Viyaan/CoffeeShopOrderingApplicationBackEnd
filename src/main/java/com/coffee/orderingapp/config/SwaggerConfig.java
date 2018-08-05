@@ -36,7 +36,7 @@ private ApiInfo getApiInfo() {
             "1",
             "TERMS OF SERVICE URL",
             new Contact("Vipin","vipin.com","vipin@gmail.com"),
-            "LICENSE",
+            "MIT",
             "LICENSE URL",
             Collections.emptyList()
     );

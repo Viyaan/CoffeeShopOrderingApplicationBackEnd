@@ -73,11 +73,11 @@ public class OrderingAppController {
 
 	}
 	
-	@ApiOperation("Take Order API.")
+	@ApiOperation("This api is used to place an order")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = User.class),
 			@ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
-	@RequestMapping(value = "/takeOrder", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	@RequestMapping(value = "/place-order", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	@PostMapping
 	public ResponseEntity<String> takeOrder(@RequestBody Order order) {
 		orderService.saveOrder(order);

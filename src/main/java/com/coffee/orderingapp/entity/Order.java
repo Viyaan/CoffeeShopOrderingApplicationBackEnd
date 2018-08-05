@@ -9,44 +9,44 @@ import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
 
-@ApiModel(description = "Class representing a Order.")
+@ApiModel(description = "Class representing a Order placed by custormer.")
 @Entity
 @Table(name = "Order")
-
 public class Order {
-	
-	@Column(name = "Qty")
-	private int qty;
-	
+
+	@Column(name = "quantity")
+	private int quantity;
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="Order_Id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "order_Id")
 	private String orderId;
-	
-	@Column(name = "Token_No")
+
+	@Column(name = "token_No")
 	private int tokenNo;
-	
-	
-	
-	
-	public int getQty() {
-		return qty;
+
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setQty(int qty) {
-		this.qty = qty;
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
+
 	public String getOrderId() {
 		return orderId;
 	}
+
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
+
 	public int getTokenNo() {
 		return tokenNo;
 	}
+
 	public void setTokenNo(int tokenNo) {
 		this.tokenNo = tokenNo;
 	}
-	
-	
- }
+
+}

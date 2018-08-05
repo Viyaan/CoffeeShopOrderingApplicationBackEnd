@@ -9,14 +9,12 @@ import com.coffee.orderingapp.entity.Order;
 import com.coffee.orderingapp.repository.OrderRepository;
 import com.coffee.orderingapp.service.OrderService;
 import com.coffee.orderingapp.util.TokenGenerator;
+
 @Service("orderService")
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	private OrderRepository orderRepository;
-    
-	
-	
 
 	@Override
 	public Order fetchAllOrders() {
@@ -27,25 +25,12 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public void saveOrder(Order order) {
 		// TODO Auto-generated method stub
-		order=TokenGenerator.getToken(order);
-		
-		
+		order = TokenGenerator.getToken(order);
+
 		order.setOrderId("");
-		order.setQty(5);
-			
-		
-		
-		//orderRepository.save(order);
+		order.setQuantity(5);
+
+		// orderRepository.save(order);
 	}
-	
-	
-	
-
-	
-	
-
-
-
-	
 
 }

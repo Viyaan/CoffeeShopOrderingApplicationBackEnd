@@ -18,6 +18,10 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Class representing a user.")
 @Entity
 @Table(name = "user")
 public class User {
@@ -29,17 +33,21 @@ public class User {
 	@Column(name = "email")
 	@Email(message = "*Please provide a valid Email")
 	@NotEmpty(message = "*Please provide an email")
+	 @ApiModelProperty(notes = "Email id of the user.",  required = true)
 	private String email;
 	@Column(name = "password")
 	@Length(min = 5, message = "*Your password must have at least 5 characters")
 	@NotEmpty(message = "*Please provide your password")
+	 @ApiModelProperty(notes = "Password of the user, Minimum 5 characters",  required = true)
 	@Transient
 	private String password;
 	@Column(name = "name")
 	@NotEmpty(message = "*Please provide your name")
+	 @ApiModelProperty(notes = "Name of the user.",  required = true)
 	private String name;
 	@Column(name = "last_name")
 	@NotEmpty(message = "*Please provide your last name")
+	 @ApiModelProperty(notes = "Last Name of the user.",  required = true)
 	private String lastName;
 	@Column(name = "active")
 	private int active;

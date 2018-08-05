@@ -33,9 +33,10 @@ public class OrderServiceImpl implements OrderService {
 		Order order = new Order();
 		order = TokenGenerator.getToken(order);
 		Set items = new HashSet();
-		Item item = new Item();
+		
 		
 		for(CustomerOrder cust_order: orderPlaced.getOrders()) {
+			Item item = new Item();
 			order.setQuantity(cust_order.getQuantity());
 			item.setItemName(cust_order.getItem());
 			item.setPrice(cust_order.getPrice());

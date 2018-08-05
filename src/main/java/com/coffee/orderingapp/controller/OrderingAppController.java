@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.coffee.orderingapp.entity.Order;
 import com.coffee.orderingapp.entity.User;
 import com.coffee.orderingapp.model.Login;
+import com.coffee.orderingapp.model.OrderPlaced;
 import com.coffee.orderingapp.service.OrderService;
 import com.coffee.orderingapp.service.UserService;
 
@@ -79,7 +80,7 @@ public class OrderingAppController {
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = "/place-order", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	@PostMapping
-	public ResponseEntity<String> takeOrder(@RequestBody Order order) {
+	public ResponseEntity<String> takeOrder(@RequestBody OrderPlaced order) {
 		orderService.saveOrder(order);
 		return ResponseEntity.status(HttpStatus.OK).body("Order has been taken successfully");
 

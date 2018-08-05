@@ -2,15 +2,14 @@ package com.coffee.orderingapp.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
@@ -29,12 +28,7 @@ public class Order {
 	private int quantity;
 	
 	
-	@ManyToMany (fetch = FetchType.LAZY)
-	@JoinTable(name ="order_item",  joinColumns ={
-	@JoinColumn(name ="order_id", nullable =false, updatable =false)
-	},
-	inverseJoinColumns ={
-	@JoinColumn(name ="item_id",nullable =false, updatable =false)})
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orders" ,cascade = CascadeType.ALL)
 	private Set<Item> items;
 
 	@Column(name = "token_no")

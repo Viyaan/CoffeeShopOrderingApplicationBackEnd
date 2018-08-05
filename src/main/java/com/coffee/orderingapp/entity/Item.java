@@ -8,7 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
@@ -29,8 +30,9 @@ public class Item {
 	@Column(name="price")
 	private double price;
 	
-	@ManyToMany (fetch = FetchType.LAZY, mappedBy ="items")
-	public Set<Order> orders;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "order_id")
+	public Order orders;
 	
 	public String getItemName() {
 		return itemName;
@@ -50,12 +52,13 @@ public class Item {
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
-	public Set getOrders() {
+	public Order getOrders() {
 		return orders;
 	}
-	public void setOrders(Set orders) {
+	public void setOrders(Order orders) {
 		this.orders = orders;
 	}
+
 	
 	
 

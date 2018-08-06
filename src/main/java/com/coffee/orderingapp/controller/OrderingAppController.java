@@ -1,5 +1,7 @@
 package com.coffee.orderingapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.coffee.orderingapp.entity.Menu;
 import com.coffee.orderingapp.entity.Order;
 import com.coffee.orderingapp.entity.User;
 import com.coffee.orderingapp.model.Login;
 import com.coffee.orderingapp.model.OrderPlaced;
+import com.coffee.orderingapp.service.MenuService;
 import com.coffee.orderingapp.service.OrderService;
 import com.coffee.orderingapp.service.UserService;
 
@@ -30,6 +34,9 @@ public class OrderingAppController {
 
 	@Autowired
 	private OrderService orderService;
+	
+	@Autowired
+	private MenuService menuService;
 
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
@@ -83,6 +90,19 @@ public class OrderingAppController {
 	public ResponseEntity<String> takeOrder(@RequestBody OrderPlaced order) {
 		orderService.saveOrder(order);
 		return ResponseEntity.status(HttpStatus.OK).body("Order has been taken successfully");
+
+	}
+	
+	
+	
+	@ApiOperation("This api is used to given list of all items in an menu")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Order.class),
+			@ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
+	@RequestMapping(value = "/menu",  produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	public ResponseEntity<List<Menu>> menu() {
+		List<Menu> menu =menuService.findAll();
+		return ResponseEntity.status(HttpStatus.OK).body(menu);
 
 	}
 

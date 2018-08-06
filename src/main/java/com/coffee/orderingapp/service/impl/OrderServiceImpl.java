@@ -22,18 +22,15 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public Order fetchAllOrders() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void saveOrder(OrderPlaced orderPlaced) {
-		// TODO Auto-generated method stub
 		
 		Order order = new Order();
 		order = TokenGenerator.getToken(order);
-		Set items = new HashSet();
-		
+		Set<Item> items = new HashSet<Item>();
 		
 		for(CustomerOrder cust_order: orderPlaced.getOrders()) {
 			Item item = new Item();
@@ -42,7 +39,6 @@ public class OrderServiceImpl implements OrderService {
 			item.setPrice(cust_order.getPrice());
 			items.add(item);
 		}
-		
 		
 		order.setItems(items);
 		orderRepository.save(order);

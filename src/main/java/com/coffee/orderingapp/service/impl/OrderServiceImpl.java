@@ -26,6 +26,18 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> fetchAllOrders() {
 		return orderRepository.findAll();
 	}
+	
+	public void findandUpdateByStatus(OrderStatus fromOrderStatus, OrderStatus toOrderStatus)
+	{
+		System.out.println("Inside findandUpdateByStatus");
+		List<Order> orders = orderRepository.findByOrderStatus(fromOrderStatus);
+		for(Order order : orders)
+		{
+			order.setStatus(toOrderStatus);
+			orderRepository.save(order);
+		}
+		System.out.println("completed findandUpdateByStatus");
+	}
 
 	@Override
 	public void saveOrder(OrderPlaced orderPlaced) {

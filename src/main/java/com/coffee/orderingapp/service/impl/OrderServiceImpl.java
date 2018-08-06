@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 		
 		for(CustomerOrder cust_order: orderPlaced.getOrders()) {
 			Item item = new Item();
-			order.setQuantity(cust_order.getQuantity());
+			item.setQuantity(cust_order.getQuantity());
 			item.setItemName(cust_order.getItem());
 			item.setPrice(cust_order.getPrice());
 			items.add(item);

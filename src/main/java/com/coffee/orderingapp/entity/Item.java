@@ -34,6 +34,9 @@ public class Item {
 	@JoinColumn(name = "order_id")*/
 	//public Order orders;
 	
+	@Column(name = "quantity")
+	private int quantity;
+	
 	public String getItemName() {
 		return itemName;
 	}
@@ -59,6 +62,14 @@ public class Item {
 		this.orders = orders;
 	}*/
 
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	
 	
 

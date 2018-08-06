@@ -24,8 +24,7 @@ public class Order {
 	@Column(name = "order_id")
 	private int orderId;
 	
-	@Column(name = "quantity")
-	private int quantity;
+
 	
 	
 	@OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
@@ -45,14 +44,7 @@ public class Order {
 	}
 
 
-	public int getQuantity() {
-		return quantity;
-	}
 
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 
 
 	public int getTokenNo() {

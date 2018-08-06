@@ -24,8 +24,6 @@ public class Order {
 	@Column(name = "order_id")
 	private int orderId;
 	
-
-	
 	
 	@OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
 	private Set<Item> items;

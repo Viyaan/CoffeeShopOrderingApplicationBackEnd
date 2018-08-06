@@ -28,7 +28,7 @@ public class Order {
 	private int quantity;
 	
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orders" ,cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
 	private Set<Item> items;
 
 	@Column(name = "token_no")

@@ -30,9 +30,9 @@ public class Item {
 	@Column(name="price")
 	private double price;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "order_id")
-	public Order orders;
+/*	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "order_id")*/
+	//public Order orders;
 	
 	public String getItemName() {
 		return itemName;
@@ -52,12 +52,12 @@ public class Item {
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
-	public Order getOrders() {
+/*	public Order getOrders() {
 		return orders;
 	}
 	public void setOrders(Order orders) {
 		this.orders = orders;
-	}
+	}*/
 
 	
 	

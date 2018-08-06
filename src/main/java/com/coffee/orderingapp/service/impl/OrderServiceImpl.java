@@ -1,6 +1,7 @@
 package com.coffee.orderingapp.service.impl;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class OrderServiceImpl implements OrderService {
 	private OrderRepository orderRepository;
 
 	@Override
-	public Order fetchAllOrders() {
-		return null;
+	public List<Order> fetchAllOrders() {
+		return orderRepository.findAll();
 	}
 
 	@Override

@@ -34,7 +34,7 @@ public class OrderingAppController {
 
 	@Autowired
 	private OrderService orderService;
-	
+
 	@Autowired
 	private MenuService menuService;
 
@@ -92,29 +92,25 @@ public class OrderingAppController {
 		return ResponseEntity.status(HttpStatus.OK).body("Order has been taken successfully");
 
 	}
-	
-	
-	
+
 	@ApiOperation("This api is used to given list of all items in an menu")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Order.class),
 			@ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
-	@RequestMapping(value = "/menu",  produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	@RequestMapping(value = "/menu", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public ResponseEntity<List<Menu>> menu() {
-		List<Menu> menu =menuService.findAll();
+		List<Menu> menu = menuService.findAll();
 		return ResponseEntity.status(HttpStatus.OK).body(menu);
 
 	}
-	
-	
-	
+
 	@ApiOperation("This api is used to given fetch all the orders being placed")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Order.class),
 			@ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
-	@RequestMapping(value = "/orders",  produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+	@RequestMapping(value = "/orders", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public ResponseEntity<List<Order>> orders() {
-		List<Order> orders =orderService.fetchAllOrders();
+		List<Order> orders = orderService.fetchAllOrders();
 		return ResponseEntity.status(HttpStatus.OK).body(orders);
 
 	}

@@ -29,19 +29,19 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public void saveOrder(OrderPlaced orderPlaced) {
-		
+
 		Order order = new Order();
 		order = TokenGenerator.getToken(order);
 		Set<Item> items = new HashSet<Item>();
-		
-		for(CustomerOrder cust_order: orderPlaced.getOrders()) {
+
+		for (CustomerOrder cust_order : orderPlaced.getOrders()) {
 			Item item = new Item();
 			item.setQuantity(cust_order.getQuantity());
 			item.setItemName(cust_order.getItem());
 			item.setPrice(cust_order.getPrice());
 			items.add(item);
 		}
-		
+
 		order.setItems(items);
 		order.setStatus(OrderStatus.ORDER_PLACED);
 		orderRepository.save(order);

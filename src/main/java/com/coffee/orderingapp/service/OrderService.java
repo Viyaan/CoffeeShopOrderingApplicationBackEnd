@@ -9,6 +9,5 @@ public interface OrderService {
 	public List<Order> fetchAllOrders();
 
 	public void saveOrder(OrderPlaced order);
-	
-	
+
 }

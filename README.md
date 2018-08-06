@@ -20,6 +20,7 @@ Ordering system in coffee shop.
 
 ![H2 logo](http://anote-project.org/wiki/images/a/ab/H2-logo-2.png)
 
++ **H2 URL**  localhost:8080/h2
 
 
 ### "Development" and Testing
@@ -40,6 +41,11 @@ in 10 minutes with our <br />
 
 # REST API
 
+**Swagger** Swagger is an open source software framework backed by a large ecosystem of tools that helps developers design, build, document, and consume RESTful Web services.
+
+![Swagger logo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Swagger-logo.png/150px-Swagger-logo.png)
+
++ **Swagger URL** localhost:8080/swagger-ui.html
 
 **Register User**
 ----

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.coffee.orderingapp.entity.Item;
 import com.coffee.orderingapp.entity.Order;
+import com.coffee.orderingapp.enums.OrderStatus;
 import com.coffee.orderingapp.model.CustomerOrder;
 import com.coffee.orderingapp.model.OrderPlaced;
 import com.coffee.orderingapp.repository.OrderRepository;
@@ -42,6 +43,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 		
 		order.setItems(items);
+		order.setStatus(OrderStatus.ORDER_PLACED);
 		orderRepository.save(order);
 	}
 

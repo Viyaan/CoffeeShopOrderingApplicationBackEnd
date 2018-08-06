@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +32,10 @@ public class Order {
 
 	@Column(name = "token_no")
 	private int tokenNo;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
+	private com.coffee.orderingapp.enums.OrderStatus status;
 
 
 	public int getOrderId() {
@@ -43,6 +49,16 @@ public class Order {
 
 
 
+
+
+	public com.coffee.orderingapp.enums.OrderStatus getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(com.coffee.orderingapp.enums.OrderStatus status) {
+		this.status = status;
+	}
 
 
 	public int getTokenNo() {

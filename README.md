@@ -241,7 +241,6 @@ in 10 minutes with our <br />
   }
 ]`
  
-  
   ```
 
 ## Authors

@@ -78,12 +78,12 @@ in 10 minutes with our <br />
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
+    **Content:** ` "User doesn't exist" `
 
   OR
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
+    **Content:** `"You are unauthorized to make this request." `
 
 
 
@@ -113,17 +113,17 @@ in 10 minutes with our <br />
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ "Authenticated" }`
+    **Content:** `"Authenticated" `
  
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User does not Exist, Please register yourself" }`
+    **Content:** ` "User does not Exist, Please register yourself"`
 
   OR
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Password Mismatch" }`
+    **Content:** `"Password Mismatch" `
 
 
 **Place Order API**
@@ -152,17 +152,9 @@ in 10 minutes with our <br />
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ "Order has been taken successfully" }`
+    **Content:** `Order has been taken successfully`
     
- * **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Not Found" }`
-
-  OR
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Unauthorized" }`
+ 
 
 
 
@@ -192,17 +184,19 @@ in 10 minutes with our <br />
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ "SUCCESS" }`
+    **Content:** `[
+  {
+    "menuId": 1,
+    "item": "IDLI",
+    "price": 20
+  },
+  {
+    "menuId": 2,
+    "item": "DOSA",
+    "price": 40
+  }]`
  
-* **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Not Found" }`
-
-  OR
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Unauthorized" }`
     
     
     **ORDERS API**
@@ -231,20 +225,23 @@ in 10 minutes with our <br />
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ "SUCCESS" }`
+    **Content:** `[
+  {
+    "orderId": 1,
+    "items": [
+      {
+        "itemId": 2,
+        "itemName": "Dosa1",
+        "price": 301,
+        "quantity": 1
+      }
+    ],
+    "tokenNo": 25,
+    "status": "ORDER_PLACED"
+  }
+]`
  
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Not Found" }`
-
-  OR
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Unauthorized" }`
-    
-    
-    
+  
   ```
 
 ## Authors

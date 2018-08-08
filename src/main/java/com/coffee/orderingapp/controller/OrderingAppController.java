@@ -55,7 +55,7 @@ public class OrderingAppController {
         
 		User userExists = userService.findUserByEmail(user.getEmail());
 		if (userExists != null) {
-			map.put("message", "here is already a user registered with the email provided");
+			map.put("message", "User already registered with the email provided");
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(map);
 		} else {

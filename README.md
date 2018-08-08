@@ -60,6 +60,7 @@ in 10 minutes with our <br />
   'POST'
   
 *  **URL Params**
+	'User' 
 
    **Required:**
  
@@ -72,29 +73,174 @@ in 10 minutes with our <br />
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ id : 12, name : "Michael Bloom" }`
+    **Content:** `{ "User has been registered successfully" }`
  
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
+    **Content:** ` "User doesn't exist" `
 
   OR
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
+    **Content:** `"You are unauthorized to make this request." `
 
-* **Sample Call:**
 
-  ```javascript
-    $.ajax({
-      url: "/users/1",
-      dataType: "json",
-      type : "GET",
-      success : function(r) {
-        console.log(r);
+
+**Login API**
+----
+  Returns response Entity  when User tries to login.
+
+* **URL**
+
+  /login
+
+* **Method:**
+
+  'POST'
+  
+*  **URL Params**
+	'Login' 
+
+   **Required:**
+ 
+  
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `"Authenticated" `
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** ` "User does not Exist, Please register yourself"`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `"Password Mismatch" `
+
+
+**Place Order API**
+----
+   This api is used to place an order
+
+* **URL**
+
+  /place-order
+
+* **Method:**
+
+  'POST'
+  
+*  **URL Params**
+	'OrderPlaced' 
+
+   **Required:**
+ 
+  
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `Order has been taken successfully`
+    
+ 
+
+
+
+**Menu API**
+----
+  This api is used to given list of all items in an menu
+
+* **URL**
+
+  /menu
+
+* **Method:**
+
+  'GET'
+  
+*  **URL Params**
+	'' 
+
+   **Required:**
+ 
+  
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[
+  {
+    "menuId": 1,
+    "item": "IDLI",
+    "price": 20
+  },
+  {
+    "menuId": 2,
+    "item": "DOSA",
+    "price": 40
+  }]`
+ 
+
+    
+    
+    **ORDERS API**
+----
+  This api is used to given fetch all the orders being placed
+
+* **URL**
+
+  /orders
+
+* **Method:**
+
+  'GET'
+  
+*  **URL Params**
+	'' 
+
+   **Required:**
+ 
+  
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[
+  {
+    "orderId": 1,
+    "items": [
+      {
+        "itemId": 2,
+        "itemName": "Dosa1",
+        "price": 301,
+        "quantity": 1
       }
-    });
+    ],
+    "tokenNo": 25,
+    "status": "ORDER_PLACED"
+  }
+]`
+ 
   ```
 
 ## Authors

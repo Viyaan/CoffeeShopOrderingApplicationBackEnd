@@ -72,18 +72,20 @@ public class OrderingAppController {
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	@PostMapping
-	public ResponseEntity<String> login(@RequestBody Login login) {
-
+	public ResponseEntity<Map> login(@RequestBody Login login) {
+		HashMap<String, String> map = new HashMap<>();
 		User userExists = userService.findUserByEmail(login.getEmail());
 		if (userExists == null) {
-
-			return ResponseEntity.status(HttpStatus.OK).body("User does not Exist, Please register yourself");
+			map.put("message", "User does not Exist, Please register yourself");
+			return ResponseEntity.status(HttpStatus.OK).body(map);
 		} else {
 			if (bcrypt.matches(login.getPassword(), userExists.getPassword())) {
-				return ResponseEntity.status(HttpStatus.OK).body("Authenticated");
+				map.put("message", "Authenticated");
+				return ResponseEntity.status(HttpStatus.OK).body(map);
 			}
 		}
-		return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Password Mismatch");
+		map.put("message", "Password Mismatch");
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(map);
 
 	}
 
@@ -93,9 +95,11 @@ public class OrderingAppController {
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = "/place-order", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	@PostMapping
-	public ResponseEntity<String> takeOrder(@RequestBody OrderPlaced order) {
+	public ResponseEntity<Map> takeOrder(@RequestBody OrderPlaced order) {
+		HashMap<String, String> map = new HashMap<>();
 		orderService.saveOrder(order);
-		return ResponseEntity.status(HttpStatus.OK).body("Order has been taken successfully");
+		map.put("message", "Order has been taken successfully");
+		return ResponseEntity.status(HttpStatus.OK).body(map);
 
 	}
 

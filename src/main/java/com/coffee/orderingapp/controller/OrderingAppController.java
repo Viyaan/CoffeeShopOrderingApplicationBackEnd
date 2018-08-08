@@ -1,6 +1,8 @@
 package com.coffee.orderingapp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,17 +50,20 @@ public class OrderingAppController {
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	@PostMapping
-	public ResponseEntity<String> createNewUser(@RequestBody User user) {
+	public ResponseEntity<Map> createNewUser(@RequestBody User user) {
+		HashMap<String, String> map = new HashMap<>();
+        
 		User userExists = userService.findUserByEmail(user.getEmail());
 		if (userExists != null) {
-
+			map.put("message", "here is already a user registered with the email provided");
 			return ResponseEntity.status(HttpStatus.OK)
-					.body("There is already a user registered with the email provided");
+					.body(map);
 		} else {
 			userService.saveUser(user);
 
 		}
-		return ResponseEntity.status(HttpStatus.OK).body("User has been registered successfully");
+		map.put("message", "User has been registered successfully");
+		return ResponseEntity.status(HttpStatus.OK).body(map);
 	}
 
 	@ApiOperation("Login API.")

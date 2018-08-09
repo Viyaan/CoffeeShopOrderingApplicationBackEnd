@@ -7,6 +7,12 @@ Ordering system in coffee shop.
 4) View all the orders placed.
 4) See the status of Order.
 
+Steps to Execute:
+1)npm install --save
+2)Go to browser: http://localhost:4200
+
+
+
 # Technology Stack
 
 + **Spring Boot** Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".

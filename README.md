@@ -13,6 +13,14 @@ Ordering system in coffee shop.
  
  ![H2 logo](https://upload.wikimedia.org/wikipedia/en/2/20/Pivotal_Java_Spring_Logo.png)
  
+ + **Angular JS** 
+AngularJS extends HTML with new attributes.
+AngularJS is perfect for Single Page Applications (SPAs).
+AngularJS is easy to learn..
+ 
+ + **BOOTSTRAP** 
+Bootstrap is the most popular HTML, CSS, and JavaScript framework for developing responsive, mobile-first websites.
+ 
 ## Database? 
 
 + **H2** is a relational database management system written in Java. It can be embedded in Java applications or run in the client-server mode.
